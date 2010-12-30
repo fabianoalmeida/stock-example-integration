@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="template.xhtml">
+
+  <ui:define name="content">
+    <h:form>
+      
+      <h:messages />
+      
+      <h:outputText value="#{msg['unit.label.description']}" />
+      <h:inputText id="cargoDes" value="#{unitMB.unit.description}" required="true" 
+      		requiredMessage="#{msg['unit.label.description.required']}" />
+      <h:commandButton value="#{msg['general.action.save']}" action="#{unitMB.save}" />
+    
+      <h:dataTable value="#{unitMB.units}" var="unit">
+        <f:facet name="header">
+          <h:column>
+            <h:outputText value="#{msg['unit.label.description']}" />
+          </h:column>
+        </f:facet>
+        <h:column>
+          <h:outputText value="#{unit.description}" />
+        </h:column>
+      </h:dataTable>
+    
+    </h:form>
+  </ui:define>
+
+</ui:composition>

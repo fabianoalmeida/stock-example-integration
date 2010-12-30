@@ -1,0 +1,21 @@
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+
+	<!-- para o ambiente de desenvolvimento	-->
+	<persistence-unit name="devlp" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.example.stock.domain.entity.Unit</class>
+		<properties>
+			<property name="cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+<!--			<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
+<!--			<property name="hibernate.hbm2ddl.auto" value="update" />-->
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="connection.autocommit" value="true" />
+		</properties>
+	</persistence-unit>
+
+</persistence>
